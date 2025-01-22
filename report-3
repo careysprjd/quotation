@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="report_sales_quot">
+            <t t-foreach="docs" t-as="property">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                    <!-- Halaman pertama dengan logo di header -->
+                        <h2 style="border-bottom: 2px solid black; padding-bottom: 10px; text-align: center;">Quotation</h2>
+                        <h6>Tanggal : <span t-field="property.sale_quo_date" /></h6>
+                        <h6>No : <span t-field="property.sale_quo_number" /></h6>
+                        <h6>Ref : <span t-field="property.sale_quo_ref" /></h6>
+                        <h6>Alamat : <span t-field="property.sale_quo_location_id" /></h6>
+                        <h6>Kontak : <span t-field="property.sale_quo_contact_id" /></h6>
+                        <h6>Hal : Penawaran Harga Elevator/Eskalator merek UOLA-VOLKSLIFT </h6>
+                        <h6>Proyek : <span t-field="property.sale_quo_project_id" /></h6>
+                        <p>Dengan Hormat,</p>
+                        <p>Pertama-tama kami ucapkan banyak terima kasih atas kesempatan yang telah Bapak/Ibu berikan kepada kami. Bersama ini
+                        kami sampaikan pengadaan dan instalasi elevator/ eskalator/ parking system merek UOLA-VOLKSLIFT Germany (ex China) sebagai berikut:</p>
+
+                    <br/><h6><b>1. Harga Unit *</b></h6>
+                    <div class="oe_structure" style="border-top: 1px solid black; border-collapse: collapse;">
+                        <table class="o_has_total_table table o_main_table table-borderless">
+                            <thead style="display: table-row-group">
+                                <tr>
+                                    <th class="text-start">No</th>
+                                    <th class="text-center">Keterangan</th>
+                                    <th>Qty</th>
+                                    <th class="text-end">Biaya Instalasi Unit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="docs" t-as="line"> 
+                                    <td class="text-start"><span t-field="line.sale_quo_id"/></td>
+                                    <td class="text-center"><span t-field="line.sale_quo_remarks"/></td>
+                                    <td><span t-field="line.sale_quo_margin"/></td>
+                                    <td class="text-end"><span t-field="line.sale_quo_installation"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+
+                    <div class="oe_structure" style="width: 40%; margin-left: auto; margin-right: 1px;">
+                        <table class="o_has_total_table table o_main_table table-borderless">
+                        <thead style="display: table-row-group">
+                            <tr>
+                                <th>Sub Total</th>
+                                <td class="text-end"><span t-field="line.subtotal"/></td>
+                            <tr>
+                                <th>PPN 11%</th>
+                                <td class="text-end"><span t-field="line.tax_11_percent"/></td>
+                            </tr>
+                            </tr>
+                        </thead>
+                        </table>
+                    </div>
+
+                    <div class="oe_structure" style="width: 40%; margin-left: auto; margin-right: 1px;">
+                        <table class="o_has_total_table table o_main_table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>Total</th>
+                                    <td class="text-end"><span t-field="line.total_with_tax"/></td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    
+                </div>
+            </t>
+
+            <!-- Halaman Kedua tanpa logo di header -->
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="oe_structure" style="padding-top: 2px; text-align: justify; page-break-before: always; margin-top: -10px">
+                            <table class="o_has_total_table table o_main_table table-borderless">
+                                <p style="line-height: 1.0;"><b>2. Cara Pembayaran</b></p>
+                                <p style="text-indent: 30px; line-height: 1.0; border-bottom: 1px solid black; padding-bottom: 5px;">Unit</p>
+                                <p style="text-indent: 30px; line-height: 1.0;">Uang muka (DP) 30%</p>
+                                <p style="text-indent: 30px; line-height: 1.0;">Copy Bill of Ladding (B/L) 65%</p>
+                                <p style="text-indent: 30px; line-height: 1.0; border-bottom: 1px solid black; padding-bottom: 5px;">Material on Site (MOS) 5%</p>
+                                <p style="text-indent: 30px; line-height: 1.0; border-bottom: 1px solid black; padding-bottom: 5px;">Instalasi</p>
+                                <p style="text-indent: 30px; line-height: 1.0;">Uang muka 30%</p>
+                                <p style="text-indent: 30px; line-height: 1.0;">Terpasang 65%</p>
+                                <p style="text-indent: 30px; line-height: 1.0;">Testing and Commissioning (T/C) 5%</p>
+                            </table>
+                        </div>
+    
+                        <div class="oe_structure">
+                            <table class="o_has_total_table table o_main_table table-borderless" style="padding-top: 2px;">
+                                <thead style="display: table-row-group">
+                                    <p style="line-height: 1.0;"><b>3. Jadwal Pelaksanaan</b></p> 
+                                    <ul>
+                                        <li>Produksi: ± 2½ (dua setengah) bulan setelah SPK (PO) dan DP diterima; dan setelah gambar kerja dan data teknis disetujui.</li>
+                                        <li>Pengiriman: ± 1 (satu) bulan (jalur hijau pabean).</li>
+                                        <li>Instalasi dan T/C: ± 1½ (satu setengah) bulan.</li>
+                                    </ul>
+                                </thead>
+                                <thead style="display: table-row-group">
+                                    <p style="line-height: 1.0;"><b>4. Garansi/Pemeliharaan</b></p> 
+                                    <ul>
+                                        <li>Garansi unit selama 12 (dua belas) bulan sejak T/C atau 18 (delapan belas) bulan sejak unit dikirimkan dari pabrik;
+                                        mana yang tercapai terlebih dahulu</li>
+                                        <li>Pemeliharaan cuma-cuma untuk unit selama 3 (tiga) bulan sejak unit terpasang</li>
+                                    </ul>
+                                </thead>
+                                <thead style="display: table-row-group">
+                                    <p style="line-height: 1.0;"><b>5. Masa Berlaku</b></p> 
+                                    <ul>
+                                        <li>Penawaran ini berlaku 1 (satu) bulan sejak tanggal penawaran ini.</li>
+                                    </ul>
+                                </thead>
+                                <thead style="display: table-row-group">
+                                    <p style="line-height: 1.0;"><b>6. Pekerjaan yang Tidak Termasuk</b></p> 
+                                    <ul>
+                                        <li>Pengadaan dan pemasangan sub panel elevator/eskalator, Air Conditioning (AC), penerangan dan perlengkapan lainnya di ruang mesin.</li>
+                                        <li>Eskalator: Cladding (penutup bagian samping dan bawah). Start-stop/slow sensors(econo-drive).</li>
+                                        <li>Penarikan kabel dari panel induk ke sub panel elevator/eskalator. Penarikan kabel intercom ke ruang monitor.</li>
+                                        <li>Pengadaan daya listrik untuk Testing and Commissioning (T/C).</li>
+                                        <li>Pekerjaan sipil yang berhubungan dengan pekerjaan elevator/eskalator seperti:pembuatan shaft/hoistway,ruang mesin pit yang kedap air, 
+                                        seperator/intermediate beam, hoisting hook, balok praktis untuk dudukan rel bracket, bobokan dan perapihan
+                                        lantai kembali, struktur opening, finishing sekitar jamb dan transom, support beam, kolom praktis untuk dudukan elevator/eskalator.</li>
+                                    </ul>
+                                </thead>
+                                <thead style="display: table-row-group">
+                                    <p style="line-height: 1.0;"><b>7. Lampiran</b></p> 
+                                    <ul>
+                                        <li>Spesifikasi teknis.</li>
+                                    </ul>
+                                </thead>
+                                <thead style="display: table-row-group">
+                                    <p>Demikian penawaran ini kami sampaikan, besar harapan kami untuk dapat turut berpartisipasi dalam proyek Bapak/Ibu. 
+                                    Jika ada pertanyaan lebih lanjut, mohon menghubungi kami.</p>
+                                </thead>
+                                <thead style="display: table-row-group">
+                                    <p>Atas perhatiannya kami ucapkan banyak terima kasih.</p><br/>
+                                </thead>
+                                <thead style="display: table-row-group">
+                                    <p>Hormat kami,</p>
+                                    <p>PT Uola Pandawa Sejahtera</p><br/>
+                                    <p>TTD</p><br/>
+                                    <p>Yusak Kristanto, S.T.</p>
+                                    <p>Direktur</p>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+            </t>
+        </t>
+    </t>
+</template>
+
+        <record id="sales_quot" model="ir.actions.report">
+            <field name="name">Sales-Quo</field>
+            <field name="model">manage.sales</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">volks_ups.report_sales_quot</field>
+            <field name="report_file">volks_ups.report_sales_quot</field>
+            <field name="binding_model_id" ref="model_manage_sales" />
+            <field name="binding_type">report</field>
+        </record>
+
+</odoo>
