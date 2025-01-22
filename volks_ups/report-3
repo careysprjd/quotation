@@ -71,10 +71,10 @@
             </t>
 
             <!-- Halaman Kedua tanpa logo di header -->
-                <t t-call="web.external_layout">
-                    <div class="oe_structure" style="line-height: 1.0; padding-top: 2px; text-align: justify; page-break-before: always;">
+                <t t-call="web.basic_layout">
+                    <div class="oe_structure" style="line-height: 1.0; margin-top: -10px; text-align: justify; page-break-before: always;">
                         <table class="o_has_total_table table o_main_table table-borderless">
-                            <thead style="display: table-row-group; border-bottom: 2px solid black;">
+                            <thead style="display: table-row-group; border-bottom: 1px solid black;">
                                 <tr>
                                     <th>Unit</th>
                                     <th>Instalasi</th>
@@ -86,12 +86,10 @@
                                 <td>Uang muka 30%</td>
                                 </tr>
                         </tbody>
-                        <thead style="display: table-row-group">
                                 <tr>
                                     <th>Copy Bill of Ladding (B/L) 65%</th>
                                     <th>Terpasang 65%</th>
                                 </tr>
-                            </thead>
                         <tbody>
                                 <tr t-foreach="docs" t-as="line"> 
                                 <td>Material on Site (MOS) 5%</td>
@@ -100,10 +98,9 @@
                         </tbody>
                         </table>
                         </div>
-                    
     
                         <div class="oe_structure">
-                            <table class="o_has_total_table table o_main_table table-borderless" style="padding-top: 2px;">
+                            <table class="o_has_total_table table o_main_table table-borderless" style="padding-top: 0px;">
                                 <thead style="display: table-row-group">
                                     <p><b>3. Jadwal Pelaksanaan</b></p> 
                                     <ul>
@@ -149,7 +146,7 @@
                                     Jika ada pertanyaan lebih lanjut, mohon menghubungi kami.</p>
                                     <p>Atas perhatiannya kami ucapkan banyak terima kasih.</p>
                                 </thead>
-                                <thead style="display: table-row-group">
+                                <thead style="display: table-row-group;">
                                     <p>Hormat kami,</p>
                                     <p>PT Uola Pandawa Sejahtera</p>
                                     <p>TTD</p><br/>
