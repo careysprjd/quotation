@@ -6,8 +6,9 @@
             <t t-call="web.html_container">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        <h2 style="text-align: center;">Quotation</h2>
-                        <hr/>
+
+                        <!-- Halaman pertama -->
+                        <h2 style="border-bottom: 2px solid black; padding-bottom: -10px; text-align: center;">Quotation</h2>
                         <h6>Tanggal : <span t-field="property.sale_quo_date" /></h6>
                         <h6>No : <span t-field="property.sale_quo_number" /></h6>
                         <h6>Ref : <span t-field="property.sale_quo_ref" /></h6>
@@ -19,7 +20,7 @@
                         <p>Pertama-tama kami ucapkan banyak terima kasih atas kesempatan yang telah Bapak/Ibu berikan kepada kami. Bersama ini
                         kami sampaikan pengadaan dan instalasi elevator/ eskalator/ parking system merek UOLA-VOLKSLIFT Germany (ex China) sebagai berikut:</p>
 
-                    <br/><h6><b>1. Harga Unit *</b></h6>
+                        <br/><h6><b>1. Harga Unit *</b></h6>
                     <div class="oe_structure" style="border-top: 1px solid black; border-collapse: collapse;">
                         <table class="o_has_total_table table o_main_table table-borderless">
                             <thead style="display: table-row-group">
@@ -43,20 +44,20 @@
 
                     <div class="oe_structure" style="width: 40%; margin-left: auto; margin-right: 1px;">
                         <table class="o_has_total_table table o_main_table table-borderless">
-                        <thead style="display: table-row-group">
-                            <tr>
-                                <th>Sub Total</th>
-                                <td class="text-end"><span t-field="line.subtotal"/></td>
-                            <tr>
-                                <th>PPN 11%</th>
-                                <td class="text-end"><span t-field="line.tax_11_percent"/></td>
-                            </tr>
-                            </tr>
-                        </thead>
+                            <thead>
+                                <tr>
+                                    <th>Sub Total</th>
+                                    <td class="text-end"><span t-field="line.subtotal"/></td>
+                                <tr>
+                                    <th>PPN 11%</th>
+                                    <td class="text-end"><span t-field="line.tax_11_percent"/></td>
+                                </tr>
+                                </tr>
+                            </thead>
                         </table>
                     </div>
 
-                    <div class="oe_structure" style="width: 40%; margin-left: auto; margin-right: 1px;">
+                    <div class="oe_structure" style="width: 40%; margin-left: auto; margin-right: 1px; border-top: 1px solid black;">
                         <table class="o_has_total_table table o_main_table table-borderless">
                             <thead>
                                 <tr>
@@ -66,25 +67,38 @@
                             </thead>
                         </table>
                     </div>
-
-                    <div class="oe_structure" style="text-align: justify; page-break-before: always;">
+                    
+                    <!-- Halaman kedua -->
+                    <div class="oe_structure" style="line-height: 1.15; margin-top: 0; text-align: justify; page-break-before: always;">
+                    <h6><b>2. Cara Pembayaran</b></h6>
                         <table class="o_has_total_table table o_main_table table-borderless">
-                            <p><b>2. Cara Pembayaran</b></p>
-                            <p style="text-indent: 30px;">Unit</p>
-                            <hr/>
-                            <p style="text-indent: 30px;">Uang muka (DP) 30%</p>
-                            <p style="text-indent: 30px;">Copy Bill of Ladding (B/L) 65%</p>
-                            <p style="text-indent: 30px;">Material on Site (MOS) 5%</p>
-                            <p style="text-indent: 30px;">Instalasi</p>
-                            <hr/>
-                            <p style="text-indent: 30px;">Uang muka 30%</p>
-                            <p style="text-indent: 30px;">Terpasang 65%</p>
-                            <p style="text-indent: 30px;">Testing and Commissioning (T/C) 5%</p>
+                            <thead style="display: table-row-group; border-bottom: 1px solid black;">
+                                <tr>
+                                    <th>Unit</th>
+                                    <th>Instalasi</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                                <tr> 
+                                <td>Uang muka (DP) 30%</td>
+                                <td>Uang muka 30%</td>
+                                </tr>
+                        </tbody>
+                                <tr>
+                                    <th>Copy Bill of Ladding (B/L) 65%</th>
+                                    <th>Terpasang 65%</th>
+                                </tr>
+                        <tbody>
+                                <tr t-foreach="docs" t-as="line"> 
+                                <td>Material on Site (MOS) 5%</td>
+                                <td>Testing and Commissioning (T/C) 5%</td>
+                                </tr>
+                        </tbody>
                         </table>
-                    </div>
+                    
 
                     <div class="oe_structure">
-                        <table class="o_has_total_table table o_main_table table-borderless">
+                        <table class="o_has_total_table table o_main_table table-borderless" style="padding-top: 2px;">
                             <thead style="display: table-row-group">
                                 <p><b>3. Jadwal Pelaksanaan</b></p> 
                                 <ul>
@@ -130,7 +144,7 @@
                                 Jika ada pertanyaan lebih lanjut, mohon menghubungi kami.</p>
                             </thead>
                             <thead style="display: table-row-group">
-                                <p>Atas perhatiannya kami ucapkan banyak terima kasih.</p><br/>
+                                <p>Atas perhatiannya kami ucapkan banyak terima kasih.</p>
                             </thead>
                             <thead style="display: table-row-group">
                                 <p>Hormat kami,</p>
@@ -141,6 +155,7 @@
                             </thead>
                         </table>
                     </div>
+                </div>
                 </div>
             </t>
         </t>
