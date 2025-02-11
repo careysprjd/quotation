@@ -168,6 +168,7 @@
             <field name="report_type">qweb-html</field>
             <field name="report_name">volks_ups.report_sales_quot</field>
             <field name="report_file">volks_ups.report_sales_quot</field>
+            <field name="print_report_name">(object.state in ('draft', 'sent') and 'Quotation - %s / %s / %s' % (object.sale_quo_id, object.sale_quo_number, object.sale_quo_location_id)) or 'Order - %s / %s / %s' % (object.sale_quo_id, object.sale_quo_number, object.sale_quo_location_id)</field>
             <field name="binding_model_id" ref="model_manage_sales" />
             <field name="binding_type">report</field>
         </record>
