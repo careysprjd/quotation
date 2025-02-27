@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <!-- list view    -->
+    <record id="view_sales_invoice_list" model="ir.ui.view">
+        <field name="name">uola.invoice.list</field>
+        <field name="model">uola.invoice</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="uola_invoice_id"/>
+                <field name="uola_invoice_number"/>
+                <field name="uola_invoice_date"/>
+                <field name="uola_invoice_po_number"/>
+            </list>
+            </field>
+    </record>
+
+    <!-- form view    -->
+    <record id="view_sales_invoice_form" model="ir.ui.view">
+        <field name="name">uola.invoice.form</field>
+        <field name="model">uola.invoice</field>
+        <field name="arch" type="xml">
+            <form>
+                <!-- <header>
+                    <button name="action_done" type="object" string="Confirm"  class="oe_highlight"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-danger"/>
+                    <field name="state" widget="statusbar"/>
+                </header> -->
+                <sheet>
+                <group>
+                    <group string="Basic">
+                        <field name="uola_invoice_number" readonly="True"/>
+                        <field name="uola_invoice_date"/>
+                        <field name="company_id"/>
+                        <field name="partner_id"/>
+                        <field name="uola_invoice_po_number"/>
+                        <field name="uola_invoice_do_number"/>
+                        <field name="uola_invoice_telp"/>
+                        <field name="uola_invoice_payment_terms"/>
+                        <field name="uola_invoice_currency"/>
+                    </group>
+                    <group string="Pricing">
+                        <field name="uola_invoice_item_description"/>
+                        <field name="uola_invoice_qty"/>
+                        <field name="uola_invoice_unit_price"/>
+                        <field name="uola_invoice_amount"/>
+                        <field name="uola_invoice_bank_account"/>
+                        <field name="uola_invoice_say"/>
+                        <field name="uola_invoice_discount"/>
+                        <field name="uola_invoice_payment"/>
+                    </group>
+                </group>
+                </sheet>
+                <chatter reload_on_attachment="True"/>
+            </form>
+        </field>
+    </record>
+
+    <!-- action menyambungkan view list dan form    -->
+    <record id="action_sales_invoice" model="ir.actions.act_window">
+        <field name="name">Sales Invoice</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">uola.invoice</field>
+        <field name="view_mode">list,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new invoice
+            </p>
+        </field>
+    </record>
+
+</odoo>

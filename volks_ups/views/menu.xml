@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <menuitem id="menu_management_system"
+          name="UPS"/>
+
+        <menuitem id="menu_quotation_sales"
+          name="Uola"
+          parent="menu_management_system"/>
+
+        <menuitem id="menu_management_system_sales"
+          name="Sales Quotation"
+          parent="menu_quotation_sales"
+          action="action_management_sales"/>
+
+        <menuitem id="menu_management_system_invoice"
+          name="Sales Invoice"
+          parent="menu_quotation_sales"
+          action="action_sales_invoice"/>
+
+</odoo>
